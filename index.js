@@ -25,5 +25,8 @@ app.post('/api/send-email', async (req, res) => {
         res.status(500).json({ error: error.response?.body?.errors[0]?.message || 'Failed to send' });
     }
 });
+const PORT = process.env.PORT || 3000;
 
-app.listen(3000, () => console.log('Server running on http://localhost:3000'));
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
